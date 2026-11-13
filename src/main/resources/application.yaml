@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: webfluxreactordemo
+
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5434/webfluxdb
+    username: postgres
+    password: secret
+
+  # Schema initialization for development
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+logging:
+  level:
+    org.springframework.data.r2dbc: DEBUG
+    io.r2dbc.postgresql.QUERY: DEBUG
+    io.r2dbc.postgresql.PARAM: DEBUG
+    org.springframework.boot.sql.init: DEBUG
+    org.springframework.r2dbc.connection.init: DEBUG
